@@ -1,0 +1,75 @@
+################################################################
+# Generall Settings (deploy/branch)
+# Settings in netlify.toml override settings in netlify's web interface
+# from: https://github.com/wearelucid/nuxt-netlify-functions-example
+################################################################
+
+ # Settings in the [build] context are global and are applied to all contexts
+ # unless otherwise overridden by more specific contexts.
+[build]
+  command = "yarn production"
+  publish = "dist"
+  # avoid uncessary preview-deploy builds by ignoring automatic PRs
+  # from dependabot (saves build minutes).
+  ignore = "git log -1 --pretty=%B | grep dependabot"
+  # This formula can be used for other stuff as well,
+  # just change 'dependabot' with something else in the commit.
+# [build.environment]
+[build.environment]
+  APP_CONTEXT = 'development' # needed for serverless funcs
+
+# Serverless (Netlify) Functions
+[functions]
+  directory = "serverlessFunctions"
+  node_bundler = "esbuild"
+  # For a background function (can run up to 15mins):
+  # the function file name must end with -background,
+  # or the sub-directory that contains the background function file must end with -background
+
+# these settings apply if the `netlify dev` command is used to run the app
+[dev]
+   command = "yarn dev"
+   # port = 3000
+# [dev.environment] NOT implemented by netlify
+
+
+################################################################
+# CONTEXT (deploy/branch)
+# for different deployment modes or branches
+################################################################
+
+# all previews
+# [context.deploy-preview.environment]
+#   APP_CONTEXT = 'stage'
+
+# staging
+[context.stage]
+  command = "yarn stage"
+  publish= "dist"
+[context.stage.environment]
+  APP_CONTEXT = 'stage' # needed for serverless funcs
+
+
+# all deploys from the branch set in Netlify UI as 'production'
+[context.production]
+  command = "yarn production"
+  publish= "dist"
+[context.production.environment]
+  APP_CONTEXT = 'production' # needed for serverless funcs
+  # ... NEVER set other Env Production Vars here (not secure)
+  # but always in the netlify UI
+  ################################
+
+# integration testing
+# [context.test:integrations]
+#   command = "echo 'staging'"
+#   base = "staging"
+#   environment = {
+#   APP_CONTEXT = 'stage or test?'
+# }
+
+# Specific branch context: all deploys from this specific branch will inherit
+# these settings.
+# [context.branchName] # “staging” is a branch name
+# }
+

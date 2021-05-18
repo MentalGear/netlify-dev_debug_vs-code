@@ -1,0 +1,70 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Netlify Dev Debug",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}",
+      "command": "NODE_OPTIONS=--inspect netlify dev",
+      "outFiles": [],
+      "skipFiles": ["<node_internals>/**"],
+      "sourceMaps": true,
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/**",
+        "!**/node_modules/**"
+      ]
+    }
+    // FULLSTACK DEBUG: not working
+    //   {
+    //     "type": "chrome",
+    //     "request": "launch",
+    //     "name": "client: chrome",
+    //     "url": "http://localhost:3000",
+    //     "webRoot": "${workspaceFolder}",
+    //     "sourceMapPathOverrides": {
+    //       "webpack:///*": "${workspaceRoot}/*"
+    //     }
+    //   },
+    //   {
+    //     "type": "node",
+    //     "runtimeExecutable": "",
+    //     "request": "launch",
+    //     "name": "server: nuxt",
+    //     "args": ["dev"],
+    //     "osx": {
+    //       "program": "${workspaceFolder}/node_modules/.bin/nuxt"
+    //     },
+    //     "linux": {
+    //       "program": "${workspaceFolder}/node_modules/.bin/nuxt"
+    //     },
+    //     "windows": {
+    //       "program": "${workspaceFolder}/node_modules/nuxt/bin/nuxt.js"
+    //     }
+    //   }
+    // ],
+    // "compounds": [
+    //   {
+    //     "name": "fullstack: nuxt",
+    //     "configurations": ["server: nuxt", "client: chrome"]
+    //   },
+
+    // ALT: Not working
+    // {
+    //   "name": "Netlify Dev (Funcs) Debug",
+    //   "type": "pwa-node",
+    //   "request": "launch",
+    //   "program": "${workspaceFolder}/node_modules/.bin/netlify",
+    //   "runtimeExecutable": "yarn",
+    //   "runtimeArgs": ["debug"],
+    //   "skipFiles": ["<node_internals>/**"],
+    //   "resolveSourceMapLocations": [
+    //     "${workspaceFolder}/**",
+    //     "!**/node_modules/**"
+    //   ]
+    // },
+  ]
+}
