@@ -1,3 +1,6 @@
+## Intro
+Minimal Reproducible Example to make Netlify dev debug work with VS code.
+
 ## Setup
 
 `yarn`
