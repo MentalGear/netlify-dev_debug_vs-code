@@ -2,11 +2,13 @@
 
 `yarn`
 
-## Running
+## VS Code Debugging
 
-`netlify dev`
-or
-`npx netlify dev`
+1. Open the provided launch.json file.
+2. Open `Run and Debug` VS code Sidebar
+3. In the dropdown, select `Netlify Dev Debug`
+4. Set a breakpoint in `graphql.ts`
+5. Start by pressing `F5`
 
 _Note_
 A window will open with an "lambda error". Make sure to refresh the page and you should be at the playground.
@@ -26,14 +28,6 @@ query GetRecipe1 {
   }
 }
 ```
-
-## VS Code Debugging
-
-1. Open the provided launch.json file.
-2. Open to the `Run and Debug` Sidebar
-3. In the dropdown, select `Netlify Dev Debug`
-4. Set a breakpoint in `graphql.ts`
-5. Start by pressing `F5`
 
 ## Problems
 
