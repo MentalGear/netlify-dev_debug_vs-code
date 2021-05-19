@@ -10,6 +10,7 @@ or
 
 _Note_
 A window will open with an "lambda error". Make sure to refresh the page and you should be at the playground.
+http://localhost:8888/.netlify/functions/graphql
 
 Query Example:
 
