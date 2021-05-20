@@ -1,40 +1,53 @@
+## Intro
+
+Minimal Reproducible Example for fullstack Netlify dev debugging with VS code.
+
 ## Setup
 
 `yarn`
 
-## Running
-
-`netlify dev`
-or
-`npx netlify dev`
-
-_Note_
-A window will open with an "lambda error". Make sure to refresh the page and you should be at the playground.
-
-Query Example:
-
-```graphql
-query GetRecipe1 {
-  recipe(title: "Recipe 1") {
-    title
-    description
-    ratings
-    creationDate
-    ratingsCount(minRate: 2)
-    averageRating
-  }
-}
-```
-
 ## VS Code Debugging
 
-1. Open the provided launch.json file.
-2. Open to the `Run and Debug` Sidebar
-3. In the dropdown, select `Netlify Dev Debug`
-4. Set a breakpoint in `graphql.ts`
-5. Start by pressing `F5`
+**IMPORTANT**
 
-## Problems
+> Make sure you have deactivated "Caught Exceptions" in VS code debugger, otherwise you might catch internal node.js or other process errors.
 
-- will not respect breakpoints
-- first load displays error
+launch.json contains everything you need.
+
+In VS CODE:
+
+1. Open `Run and Debug` Sidebar. Make sure "Caught Exceptions" is deactivated.
+2. In the dropdown, select `Fullstack Debugging`
+3. Add a breakpoint in
+
+- `/serverlessFunctions/helloServerless.ts` or
+- `/serverlessFunctions/graphql.ts`
+
+4. Start debugging by pressing `F5` or run button
+
+## Debug Examples
+
+1. `Hello World` example
+
+   http://localhost:8888/.netlify/functions/helloServerless
+
+2. `graphql.ts` example
+
+   http://localhost:8888/.netlify/functions/graphql
+
+   **Note**: An error might display on first page load. Make sure to refresh the page and you should be at the playground.
+
+   Query Example:
+
+   ```graphql
+   query GetRecipe1 {
+     recipe(title: "Recipe 1") {
+       title
+       description
+       ratings
+       creationDate
+       ratingsCount(minRate: 2)
+       averageRating
+     }
+   }
+   ```
