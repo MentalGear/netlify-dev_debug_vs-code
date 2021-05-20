@@ -1,6 +1,6 @@
 ## Intro
 
-Minimal Reproducible Example for fullstack Netlify dev debugging with VS code.
+Minimal Reproducible Example for fullstack Netlify dev debugging with VS code. (nuxt/vue/graphql/typescript/buefy)
 
 ## Setup
 
