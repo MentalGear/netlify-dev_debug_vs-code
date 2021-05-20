@@ -6,7 +6,8 @@
       </card>
 
       <card title="Responsive" icon="cellphone-link">
-        <b class="has-text-grey"> Every </b> component is responsive
+        <b class="has-text-grey" @click="clicked()"> Every </b> component is
+        responsive
       </card>
 
       <card title="Modern" icon="alert-decagram">
@@ -29,6 +30,13 @@ export default {
 
   components: {
     Card,
+  },
+  methods: {
+    clicked() {
+      console.log('zup')
+      alert('cool')
+      return true
+    },
   },
 }
 </script>
