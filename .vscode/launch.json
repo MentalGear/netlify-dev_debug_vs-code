@@ -4,67 +4,38 @@
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
+    // FULLSTACK DEBUG
     {
-      "name": "Netlify Dev Debug",
+      "name": "client: chrome",
+      "comment": "Client FrontEnd Debug",
+      "type": "chrome",
       "request": "launch",
-      "type": "node-terminal",
-      "cwd": "${workspaceFolder}",
-      "command": "NODE_OPTIONS=--inspect netlify dev",
-      "outFiles": [],
+      "url": "http://localhost:8888",
+      "webRoot": "${workspaceFolder}",
+      "sourceMapPathOverrides": {
+        "webpack:///*": "${workspaceRoot}/*"
+      }
+    },
+    {
+      "name": "netlify dev: yarn dev",
+      "comment": "Nuxt via netlify dev with serverless Backend (netlify functions)",
+      "type": "node",
+      "request": "launch",
       "skipFiles": ["<node_internals>/**"],
-      "sourceMaps": true,
+      "program": "${workspaceFolder}/node_modules/.bin/netlify",
+      "args": ["dev", "--inspect"],
       "resolveSourceMapLocations": [
+        // NOTE: your  linter may think the property shouldn't here yet
+        // it works for finding the source maps
         "${workspaceFolder}/**",
         "!**/node_modules/**"
       ]
     }
-    // FULLSTACK DEBUG: not working
-    //   {
-    //     "type": "chrome",
-    //     "request": "launch",
-    //     "name": "client: chrome",
-    //     "url": "http://localhost:3000",
-    //     "webRoot": "${workspaceFolder}",
-    //     "sourceMapPathOverrides": {
-    //       "webpack:///*": "${workspaceRoot}/*"
-    //     }
-    //   },
-    //   {
-    //     "type": "node",
-    //     "runtimeExecutable": "",
-    //     "request": "launch",
-    //     "name": "server: nuxt",
-    //     "args": ["dev"],
-    //     "osx": {
-    //       "program": "${workspaceFolder}/node_modules/.bin/nuxt"
-    //     },
-    //     "linux": {
-    //       "program": "${workspaceFolder}/node_modules/.bin/nuxt"
-    //     },
-    //     "windows": {
-    //       "program": "${workspaceFolder}/node_modules/nuxt/bin/nuxt.js"
-    //     }
-    //   }
-    // ],
-    // "compounds": [
-    //   {
-    //     "name": "fullstack: nuxt",
-    //     "configurations": ["server: nuxt", "client: chrome"]
-    //   },
-
-    // ALT: Not working
-    // {
-    //   "name": "Netlify Dev (Funcs) Debug",
-    //   "type": "pwa-node",
-    //   "request": "launch",
-    //   "program": "${workspaceFolder}/node_modules/.bin/netlify",
-    //   "runtimeExecutable": "yarn",
-    //   "runtimeArgs": ["debug"],
-    //   "skipFiles": ["<node_internals>/**"],
-    //   "resolveSourceMapLocations": [
-    //     "${workspaceFolder}/**",
-    //     "!**/node_modules/**"
-    //   ]
-    // },
+  ],
+  "compounds": [
+    {
+      "name": "Fullstack Debugging",
+      "configurations": ["netlify dev: yarn dev", "client: chrome"]
+    }
   ]
 }
