@@ -21,7 +21,9 @@
       "@nuxtjs/axios",
       "@nuxtjs/sentry",
       "@types/node",
-      "@types/jest"
+      "@types/jest",
+      // below working?
+      "buefy/types"
     ]
   },
   "exclude": ["node_modules", ".nuxt", "dist"]
