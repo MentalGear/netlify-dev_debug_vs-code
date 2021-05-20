@@ -12,7 +12,7 @@ Minimal Reproducible Example for fullstack Netlify dev debugging with VS code.
 
 > Make sure you have deactivated "Caught Exceptions" in VS code debugger, otherwise you might catch internal node.js or other process errors.
 
-launch.json contains everything you need.
+`launch.json` contains everything you need.
 
 In VS CODE:
 
