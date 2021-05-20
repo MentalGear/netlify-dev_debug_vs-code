@@ -1,7 +1,7 @@
 // styles overwriting buefy defaults
 
 // Import Bulma's core
-@import '~bulma/sass/utilities/_all';
+@import '~/node_modules/bulma/sass/utilities/_all';
 
 // Set your colors
 // $primary: hsl(210, 80%, 55%);
@@ -86,4 +86,4 @@ $link-focus-border: $primary;
 
 // Import Bulma and Buefy styles
 @import '~bulma';
-@import '~buefy/src/scss/buefy';
+@import '~/node_modules/buefy/src/scss/buefy';
