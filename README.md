@@ -1,6 +1,7 @@
 ## Intro
 
-Minimal Reproducible Example for `fullstack` `netlify dev` debugging with `vs code`. (nuxt/vue/graphql/typescript/buefy)
+Minimal Reproducible Example for `fullstack` `netlify dev` debugging with `vs code`.
+Running: nuxt, vue, type-graphql, typescript, buefy, apollo-server-lambda on netlify functions.
 
 ## Setup
 
