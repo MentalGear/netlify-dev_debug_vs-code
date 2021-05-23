@@ -10,7 +10,7 @@ Minimal Reproducible Example for `fullstack` `netlify dev` debugging with `vs co
 
 **IMPORTANT**
 
-> Make sure you have deactivated "Caught Exceptions" in VS code debugger, otherwise you might catch internal node.js or other process errors.
+> Make sure you have deactivated "Caught Exceptions" in VS Code debugger, otherwise you might catch internal node.js or other wrapping processes errors.
 
 `launch.json` should contain everything you need to integrate debugging with your project.
 
