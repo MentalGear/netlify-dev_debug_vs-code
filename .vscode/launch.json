@@ -3,11 +3,20 @@
   // Hover to view descriptions of existing attributes.
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
+  // ---- FULLSTACK NETLIFY DEV DEBUGGING ----
+  // 1. Make sure "Caught Exceptions" is deactivated in your VS Code debugger
+  // 2. Run 'Fullstack Debugging' from the debug interface
+  // 3. A chrome browser window will open, however it may take a few seconds
+  // before the server is ready and content is displayed.
+  "compounds": [
+    {
+      "name": "Fullstack Debugging",
+      "configurations": ["netlify dev", "client: chrome"]
+    }
+  ],
   "configurations": [
-    // FULLSTACK DEBUG
     {
       "name": "client: chrome",
-      "comment": "Client FrontEnd Debug",
       "type": "chrome",
       "request": "launch",
       "url": "http://localhost:8888",
@@ -17,25 +26,18 @@
       }
     },
     {
-      "name": "netlify dev: yarn dev",
-      "comment": "Nuxt via netlify dev with serverless Backend (netlify functions)",
+      "name": "netlify dev",
       "type": "node",
       "request": "launch",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/node_modules/.bin/netlify",
       "args": ["dev", "--inspect"],
       "resolveSourceMapLocations": [
-        // NOTE: your  linter may think the property shouldn't here yet
-        // it works for finding the source maps
+        // NOTE: your linter may think this property shouldn't be here
+        // yet it works for finding the source maps
         "${workspaceFolder}/**",
         "!**/node_modules/**"
       ]
-    }
-  ],
-  "compounds": [
-    {
-      "name": "Fullstack Debugging",
-      "configurations": ["netlify dev: yarn dev", "client: chrome"]
     }
   ]
 }
