@@ -6,7 +6,9 @@ Running: `nuxt`, `vue`, `type-graphql`, `typescript`, `buefy`, `apollo-server-la
 
 ## Setup
 
-`yarn`
+```shell
+yarn
+```
 
 ## VS Code Debugging
 
