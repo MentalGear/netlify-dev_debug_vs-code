@@ -1,4 +1,37 @@
-## Intro
+# netlift dev no Error output in vsCode
+
+## Bug
+
+When running from vs code the `debug console` shows no errors and no indication what the problem is or how to solve it. Only a generic `404 function not found` when trying to access the function.
+
+## Expected Result
+
+When running from shell with `netlify dev` command, the build shows erros normally.
+
+A clear error is given:
+
+> `Failed building functions from directory serverlessFunctions with error:`
+
+Full output
+
+```shell
+◈ Building functions from directory serverlessFunctions
+ > serverlessFunctions/graphQL2.ts:33:45: error: Expected ";" but found "{"
+    33 │ const handler = async (event, ctx, callback) {
+       ╵                                              ^
+
+◈ Failed building functions from directory serverlessFunctions with error:
+Build failed with 1 error:
+serverlessFunctions/graphQL2.ts:33:45: error: Expected ";" but found "{"
+```
+
+## Reproduction
+
+Follow the below instruction. A new file has been added that will error the netlify function building in this codebase.
+
+---
+
+## Normal Intro
 
 Minimal Reproducible Example for `fullstack` `netlify dev` debugging with `vs code`.
 
