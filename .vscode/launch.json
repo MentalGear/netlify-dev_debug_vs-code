@@ -32,6 +32,7 @@
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/node_modules/.bin/netlify",
       "args": ["dev", "--inspect"],
+      "console": "integratedTerminal", // avoids logs & errors from being suppressed
       "resolveSourceMapLocations": [
         // NOTE: your linter may think this property shouldn't be here
         // yet it works for finding the source maps
